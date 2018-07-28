@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p>canvas基于状态的</p>
+<canvas id="canvas" width="1024" height="768" style="border:1px solid #000;display: block; margin: 50px auto; ">
+   当前浏览器不支持canvas，请更换浏览器后再试
+</canvas>
+</body>
+<script>
+    window.onload=function (ev) {
+        var canvas=document.getElementById("canvas");
+        //canvas.width=1024;//设置canvas的宽度和高度
+        //canvas.height=768;
+        if(canvas.getContext("2d")){
+            //使用context绘制
+            var context=canvas.getContext('2d');
+            //绘制直线
+            context.beginPath()
+            context.moveTo(100,100);
+            context.lineTo(700,700);
+            context.lineTo(100,700);
+            context.lineTo(100,100);
+            context.closePath();
+
+            // context.fillStyle="rgb2,100,30)"
+            // context.fill();
+
+            context.lineWidth=5;
+            context.strokeStyle="#005588";
+            context.stroke();
+
+            context.beginPath()
+            context.moveTo(200,100);
+            context.lineTo(700,600);
+            context.closePath()
+
+            context.strokeStyle="black";
+            context.stroke();
+
+
+        }else{
+            alert("当前浏览器不支持Canvas，请更换浏览器后再试");
+        }
+    }
+</script>
+</html>
